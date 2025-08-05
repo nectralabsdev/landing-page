@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nectra Labs | Web3 Development & Smart Contract Services</title>
+    <link href="./nectra-labs/bootstrap.min.css" rel="stylesheet">
+    <link href="./nectra-labs/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
+            color: #f5f5f5;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Smooth scroll for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animated background particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #888888;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0;
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 1;
+            }
+        }
+
+                .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+            position: relative;
+            background: linear-gradient(135deg, rgba(136, 136, 136, 0.1) 0%, rgba(88, 88, 88, 0.05) 100%);
+            backdrop-filter: blur(10px);
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(136, 136, 136, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        .hero .content img {
+            max-height: 400px;
+            max-width: 90%;
+            margin: auto;
+        }
+
+        .hero .email {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+                .service-card {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(45, 45, 45, 0.9) 100%);
+            border: 1px solid rgba(136, 136, 136, 0.3);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 20px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(136, 136, 136, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .service-card:hover::before {
+            left: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(136, 136, 136, 0.2);
+            border-color: rgba(136, 136, 136, 0.6);
+        }
+
+        .service-card h2 {
+            color: #cccccc;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(136, 136, 136, 0.3);
+        }
+
+        .service-card p {
+            line-height: 1.8;
+            color: #cccccc;
+            margin-bottom: 15px;
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            color: #00d4ff;
+            margin-bottom: 15px;
+        }
+
+                .hero-icon {
+            font-size: 5rem;
+            color: #cccccc;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: glow 2s ease-in-out infinite alternate;
+            text-shadow: 0 0 20px rgba(136, 136, 136, 0.8);
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 20px rgba(136, 136, 136, 0.8);
+            }
+
+            to {
+                text-shadow: 0 0 30px rgba(136, 136, 136, 1), 0 0 40px rgba(136, 136, 136, 0.5);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #cccccc, #888888, #ffffff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(136, 136, 136, 0.5);
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #cccccc;
+            font-weight: 300;
+            letter-spacing: 1px;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        /* Scroll-triggered animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Build with us section styles */
+                .build-section {
+            padding: 120px 0;
+            position: relative;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.9) 100%);
+            overflow: hidden;
+        }
+        
+        .build-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(136, 136, 136, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(88, 88, 88, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .build-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .build-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #cccccc, #888888, #ffffff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+            margin-bottom: 30px;
+        }
+
+        .build-subtitle {
+            font-size: 1.3rem;
+            color: #cccccc;
+            margin-bottom: 50px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .build-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+                .build-feature {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(136, 136, 136, 0.1) 0%, rgba(88, 88, 88, 0.05) 100%);
+            border: 1px solid rgba(136, 136, 136, 0.2);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .build-feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(136, 136, 136, 0.2);
+            border-color: rgba(136, 136, 136, 0.4);
+        }
+        
+        .build-feature-icon {
+            font-size: 3rem;
+            color: #cccccc;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(136, 136, 136, 0.5);
+        }
+
+        .build-feature h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .build-feature p {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+                .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: linear-gradient(45deg, #888888, #666666);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(136, 136, 136, 0.4);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Floating elements animation */
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 20%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        .floating-element:nth-child(4) {
+            bottom: 20%;
+            right: 10%;
+            animation-delay: 6s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .footer-content p {
+            margin: 0;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #cccccc;
+        }
+
+        .footer-content p:first-child {
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .footer-content p:last-child {
+            font-size: 0.95rem;
+            color: #999;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(26, 26, 26, 0.95) 100%);
+            border-top: 1px solid rgba(136, 136, 136, 0.2);
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(136, 136, 136, 0.5), transparent);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+                .services-section {
+            padding: 80px 0 120px 0;
+            position: relative;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(26, 26, 26, 0.4) 50%, rgba(42, 42, 42, 0.3) 100%);
+            backdrop-filter: blur(5px);
+        }
+        
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(136, 136, 136, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(88, 88, 88, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .services-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(136, 136, 136, 0.3), transparent);
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .build-features {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .build-title {
+                font-size: 2.5rem;
+            }
+
+            .build-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Animated background particles -->
+    <div class="particles" id="particles"></div>
+    <header class="hero">
+        <div class="content">
+            <div class="hero-icon">
+                <i class="fas fa-cube"></i>
+            </div>
+            <h1>Nectra Labs</h1>
+            <p>Pioneering Web3 Development & Smart Contract Solutions</p>
+            <div class="email">
+                <a href="mailto:contact@nectralabs.com" style="color: #cccccc; text-decoration: none;">
+                    <i class="fas fa-envelope" style="margin-right: 8px;"></i>contact@nectralabs.com
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="services-section">
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card slide-in-left">
+                    <h2><i class="fas fa-shield-alt"></i> Smart Contract Development</h2>
+                    <p>We design and develop secure, audited smart contracts for DeFi protocols, NFTs, DAOs, and
+                        blockchain applications with industry best practices.</p>
+                    <p>Our expertise includes Solidity, and other blockchain languages. We ensure your smart contracts
+                        are gas-optimized, secure, and thoroughly tested before deployment on major networks.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <h2><i class="fas fa-code"></i> Web3 Applications</h2>
+                    <p>Full-stack web3 development including dApps, DeFi platforms, NFT marketplaces, and blockchain
+                        integrations with modern frontend frameworks.</p>
+                    <p>We build responsive, user-friendly interfaces using React, Vue.js, and Next.js, with seamless
+                        wallet integration (MetaMask, WalletConnect), real-time blockchain data, and intuitive user
+                        experiences that make web3 accessible to everyone.</p>
+                </div>
+                <div class="service-card slide-in-right">
+                    <h2><i class="fas fa-cogs"></i> Software Development</h2>
+                    <p>Custom software solutions, API development, and system architecture design tailored to your
+                        business requirements and scalability needs.</p>
+                    <p>From backend APIs and microservices to complete enterprise solutions, we deliver robust, scalable
+                        applications using modern technologies like Node.js, Python, Go, and cloud-native architectures
+                        on AWS, Azure, and Google Cloud.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="build-section">
+        <!-- Floating background elements -->
+        <div class="floating-element">
+            <i class="fas fa-code" style="font-size: 2rem; color: #cccccc;"></i>
+        </div>
+        <div class="floating-element">
+            <i class="fas fa-cube" style="font-size: 1.5rem; color: #888888;"></i>
+        </div>
+        <div class="floating-element">
+            <i class="fas fa-globe" style="font-size: 2.5rem; color: #cccccc;"></i>
+        </div>
+        <div class="floating-element">
+            <i class="fas fa-rocket" style="font-size: 1.8rem; color: #888888;"></i>
+        </div>
+
+        <div class="container">
+            <div class="build-content">
+                <h2 class="build-title fade-in">Build with us now</h2>
+                <p class="build-subtitle fade-in">Transform your ideas into reality with cutting-edge web3 technology
+                </p>
+
+                <div class="build-features">
+                    <div class="build-feature slide-in-left">
+                        <div class="build-feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Fast Development</h3>
+                        <p>Rapid prototyping and deployment with modern development practices and agile methodologies.
+                        </p>
+                    </div>
+
+                    <div class="build-feature fade-in">
+                        <div class="build-feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Secure & Reliable</h3>
+                        <p>Enterprise-grade security with comprehensive testing and auditing for all smart contracts.
+                        </p>
+                    </div>
+
+                    <div class="build-feature slide-in-right">
+                        <div class="build-feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Expert Team</h3>
+                        <p>Experienced developers and blockchain specialists dedicated to your project's success.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer text-white text-center">
+        <div class="container">
+            <div class="footer-content">
+                <p>
+                    <i class="fas fa-envelope" style="margin-right: 8px; color: #cccccc;"></i>contact@nectralabs.com
+                </p>
+                <p>
+                    <i class="fas fa-copyright" style="margin-right: 8px; color: #cccccc;"></i><span
+                        id="current-year"></span> Nectra Labs. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./nectra-labs/jquery.min.js"></script>
+    <script src="./nectra-labs/bootstrap.min.js"></script>
+    <script>
+        // Set the current year dynamically
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Create animated background particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize particles when page loads
+        document.addEventListener('DOMContentLoaded', createParticles);
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Enhanced scroll animations
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(element => {
+            scrollObserver.observe(element);
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const heroContent = document.querySelector('.hero .content');
+
+            if (hero && heroContent) {
+                const rate = scrolled * -0.5;
+                heroContent.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Smooth scroll for any anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+
+    <protonpass-root-939a data-protonpass-role="root" data-protonpass-theme="dark"><template
+            shadowrootmode="closed"></template></protonpass-root-939a>
+</body>
+
+</html>
